@@ -1,148 +1,113 @@
-# Amma's Digital Scoldings (അമ്മയുടെ വഴക്ക്)
+# Amma's Digital Scoldings 🎯
 
-A fun web application that generates Malayalam mother's scoldings using AI. The app creates authentic Manglish scoldings and converts them to Malayalam speech.
+## Basic Details
+### Team Name: V0 AI Team
 
-## Features
+### Team Members
+- Team Lead: [Your Name] - [Your College]
+- Member 2: [Your Teammate's Name] - [Their College]
+- Member 3: [Your Teammate's Name] - [Their College]
 
-- **AI-Powered Scolding Generation**: Uses Google Gemini AI to generate creative Manglish scoldings
-- **Malayalam Translation**: Automatically translates Manglish to proper Malayalam
-- **Text-to-Speech**: Converts Malayalam text to natural-sounding speech using SarvamAI
-- **Auto-Play Audio**: Plays generated scoldings automatically (with fallback controls)
-- **Modern UI**: Built with Next.js, React, and Tailwind CSS
+### Project Description
+"Amma's Digital Scoldings" is a fun, nostalgic web application that allows users to generate and listen to typical scoldings from a South Indian Malayali mother. It combines AI-generated text with text-to-speech technology to bring a humorous touch to everyday parental admonishments.
 
-## Tech Stack
+### The Problem (that doesn't exist)
+In a world where children are glued to their screens, constantly procrastinating, and forgetting their responsibilities, how can a busy Malayali mother deliver her timeless wisdom (and scoldings) without having to physically be there? And what if you're an adult, far from home, missing the unique charm of Amma's daily "vazhakku"?
 
-- **Frontend**: Next.js 15.2.4, React 19, TypeScript
-- **Styling**: Tailwind CSS with custom warm color palette
-- **AI Services**: 
-  - Google Gemini AI (gemini-2.0-flash-exp) for text generation and translation
-  - SarvamAI TTS API with "Arya" voice model for Malayalam speech synthesis
-- **UI Components**: Custom components built with shadcn/ui
+### The Solution (that nobody asked for)
+Enter "Amma's Digital Scoldings"! A one-stop digital solution for all your scolding needs. Simply click a button, and let our AI-powered Amma deliver a perfectly crafted, authentic Malayali scolding in her own voice. It's the perfect blend of nostalgia, humor, and a gentle reminder to get things done – all without the actual guilt trip!
 
-## Setup Instructions
+## Technical Details
+### Technologies/Components Used
+For Software:
+- Languages used: TypeScript, JavaScript, HTML
+- Frameworks used: Next.js (App Router), React
+- Libraries used: Tailwind CSS, `sarvamai` (Sarvam AI Client Library)
+- APIs used: Google Gemini API (for text generation and translation), Sarvam AI Text-to-Speech API
+- Tools used: Vercel (for deployment)
 
-### Prerequisites
+For Hardware:
+- Not applicable for this software-only project.
 
-- Node.js (v18 or higher)
-- pnpm (recommended) or npm
-- Google Gemini API key
-- SarvamAI API key
-
-### Installation
-
-1. Clone the repository:
-```bash
-git clone https://github.com/cainebenoy/sarvam_trial.git
-cd sarvam_trial
-```
-
-2. Install dependencies:
-```bash
-pnpm install --legacy-peer-deps
-# or
-npm install --legacy-peer-deps
-```
-
-3. Create environment file:
-```bash
-cp .env.example .env.local
-```
-
-4. Add your API keys to `.env.local`:
-```env
-GEMINI_API_KEY=your_gemini_api_key_here
-SARVAM_API_KEY=your_sarvam_api_key_here
-```
-
-### Getting API Keys
-
-#### Google Gemini API Key
-1. Go to [Google AI Studio](https://aistudio.google.com/app/apikey)
-2. Create a new API key
-3. Copy the key to your `.env.local` file
-
-#### SarvamAI API Key
-1. Sign up at [SarvamAI](https://www.sarvam.ai/)
-2. Get your API key from the dashboard
-3. Copy the key to your `.env.local` file
-
-### Running the Application
+### Implementation
+For Software:
+# Installation
+To set up the project locally, clone the repository and install the dependencies:
 
 ```bash
-pnpm dev
-# or
-npm run dev
+git clone [your-repo-link]
+cd amma-digital-scoldings
+npm install # or yarn install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-## Usage
-
-1. Click the "Get a Scolding!" button
-2. Wait for the AI to generate a creative Manglish scolding
-3. The text will be translated to Malayalam and converted to speech
-4. Audio will play automatically (or show a play button if autoplay is blocked)
-
-## Project Structure
+# Environment Variables
+Create a `.env.local` file in the root of your project and add your API keys:
 
 ```
-├── app/
-│   ├── api/
-│   │   ├── scolding/          # Gemini AI scolding generation
-│   │   └── tts-malayalam/     # Translation and TTS pipeline
-│   ├── globals.css
-│   ├── layout.tsx
-│   └── page.tsx
-├── components/
-│   ├── scolding-generator.tsx # Main component
-│   ├── theme-provider.tsx
-│   └── ui/                    # UI components
-├── lib/
-│   └── utils.ts
-└── public/
-    └── audio/                 # Generated audio files (for debugging)
+GEMINI_API_KEY="YOUR_GEMINI_API_KEY"
+SARVAM_API_SUBSCRIPTION_KEY="YOUR_SARVAM_API_KEY"
 ```
 
-## API Endpoints
+# Run
+To run the development server:
 
-- `POST /api/scolding` - Generates Manglish scolding using Gemini AI
-- `POST /api/tts-malayalam` - Translates to Malayalam and generates speech
+```bash
+npm run dev # or yarn dev
+```
 
-## Features in Detail
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-### Scolding Generation
-- Uses Gemini AI with creative temperature settings
-- Generates authentic Manglish expressions
-- Focuses on typical maternal concerns and phrases
+### Project Documentation
+For Software:
 
-### Translation Pipeline
-- Automatically translates Manglish to proper Malayalam
-- Maintains cultural context and emotional tone
-- Uses Gemini's translation capabilities
+# Screenshots (Add at least 3)
+![Initial Load](public/screenshots/initial-load.png?height=600&width=800&query=Amma%27s%20Digital%20Scoldings%20website%20on%20initial%20load%20with%20placeholder%20text)
+*The initial state of the website, showing the title and the "Press the button..." message.*
 
-### Audio Generation
-- Malayalam text-to-speech using SarvamAI
-- "Arya" voice model for natural female voice
-- High-quality audio output in MP3 format
+![Scolding Generated](public/screenshots/scolding-generated.png?height=600&width=800&query=Amma%27s%20Digital%20Scoldings%20website%20with%20a%20Malayalam%20scolding%20text%20displayed)
+*A typical Malayali scolding generated by the Gemini AI, displayed in Manglish.*
 
-## Contributing
+![Audio Playing](public/screenshots/audio-playing.png?height=600&width=800&query=Amma%27s%20Digital%20Scoldings%20website%20with%20audio%20player%20visible%20and%20playing%20scolding)
+*The audio player becomes visible after the scolding text is converted to speech by Sarvam AI and is ready to play.*
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+# Diagrams
+```mermaid title="Amma's Digital Scoldings Workflow" type="diagram"
+graph TD;
+    A[User Clicks "Get a Scolding!"]  B{Client Component};
+    B  C[Fetch /api/scolding (Gemini for Manglish)];
+    C  D{Server (Route Handler)};
+    D  E[Gemini API (Generate Manglish Scolding)];
+    E  F[Return Manglish Text to Client];
+    F  G[Display Manglish Text];
+    G  H[Fetch /api/tts-malayalam (Translate & TTS)];
+    H  I{Server (Route Handler)};
+    I  J[Gemini API (Translate Manglish to Malayalam)];
+    J  K[Sarvam AI TTS API (Generate Audio)];
+    K  L[Return Audio Blob to Client];
+    L  M[Create Blob URL & Play Audio];
+    M  N[Reset Button State];
+```
+*Workflow diagram illustrating the client-server interactions and API calls for generating and playing a scolding.*
 
-## License
+For Hardware:
+- Not applicable for this software-only project.
 
-This project is for educational and entertainment purposes. Please ensure you comply with the respective API providers' terms of service.
+### Project Demo
+# Video
+[Add your demo video link here]
+*A short video demonstrating the process of generating a scolding and playing its audio.*
 
-## Acknowledgments
+# Additional Demos
+[Add any extra demo materials/links]
 
-- Google Gemini AI for text generation and translation
-- SarvamAI for Malayalam text-to-speech
-- The Malayalam-speaking community for inspiration
+## Team Contributions
+- **v0 AI**: Developed the core Next.js application structure, integrated Gemini API for text generation and translation, and integrated Sarvam AI for text-to-speech.
+- **[Your Name]**: [Specific contributions, e.g., project idea, design refinement, testing, deployment, documentation]
+- **[Your Teammate's Name]**: [Specific contributions]
+- **[Your Teammate's Name]**: [Specific contributions]
 
 ---
+Made with ❤️ at TinkerHub Useless Projects 
 
-Made with ❤️ for nostalgic memories of Amma's loving scoldings!
+![Static Badge](https://img.shields.io/badge/TinkerHub-24?color=%23000000&link=https%3A%2F%2Fwww.tinkerhub.org%2F)
+![Static Badge](https://img.shields.io/badge/UselessProjects--25-25?link=https%3A%2F%2Fwww.tinkerhub.org%2Fevents%2FQ2Q1TQKX6Q%2FUseless%2520Projects)
