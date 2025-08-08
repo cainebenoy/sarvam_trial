@@ -8,6 +8,7 @@ export default function ScoldingGenerator() {
   const [audioUrl, setAudioUrl] = useState<string | null>(null);
   const [userInteracted, setUserInteracted] = useState<boolean>(false);
   const [showPlayButton, setShowPlayButton] = useState<boolean>(false);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const audioPlayerRef = useRef<HTMLAudioElement>(null);
 
   // Main function to get scolding
@@ -15,6 +16,7 @@ export default function ScoldingGenerator() {
     setIsLoading(true);
     setUserInteracted(true); // Mark that user has interacted
     setShowPlayButton(false); // Hide play button when generating new content
+    setIsPlaying(false); // Reset playing state
     setScoldingText(''); // Clear previous scolding
     if (audioUrl) {
       URL.revokeObjectURL(audioUrl); // Clean up previous audio URL
@@ -106,6 +108,12 @@ export default function ScoldingGenerator() {
                         if (playPromise !== undefined) {
                             await playPromise;
                             console.log('Audio playing successfully!');
+                            setIsPlaying(true);
+                            
+                            // Add event listener for when audio ends
+                            audioPlayerRef.current.addEventListener('ended', () => {
+                                setIsPlaying(false);
+                            }, { once: true });
                         }
                     }
                 } catch (error) {
@@ -120,6 +128,14 @@ export default function ScoldingGenerator() {
             
             // Also try immediately in case it's already loaded
             setTimeout(attemptPlay, 100);
+            
+            // Fallback: Always show play button after 2 seconds if audio hasn't started
+            setTimeout(() => {
+                if (audioPlayerRef.current && audioPlayerRef.current.paused) {
+                    console.log('Audio still paused after 2 seconds, showing play button');
+                    setShowPlayButton(true);
+                }
+            }, 2000);
         } else {
             console.error('Audio player ref is null');
             setShowPlayButton(true);
@@ -141,11 +157,19 @@ export default function ScoldingGenerator() {
   const playAudioManually = async () => {
     if (audioPlayerRef.current) {
       try {
+        setIsPlaying(true);
         await audioPlayerRef.current.play();
         setShowPlayButton(false); // Hide button once playing
         console.log('Audio playing manually');
+        
+        // Add event listener for when audio ends
+        audioPlayerRef.current.addEventListener('ended', () => {
+          setIsPlaying(false);
+        }, { once: true });
+        
       } catch (error) {
         console.error('Manual play failed:', error);
+        setIsPlaying(false);
       }
     }
   };
@@ -181,25 +205,36 @@ export default function ScoldingGenerator() {
           {isLoading ? 'Generating...' : 'Get a Scolding!'}
         </button>
 
-        {/* Audio Player - Temporarily visible for debugging */}
+        {/* Audio Player - Hidden but always present */}
         <audio 
           ref={audioPlayerRef} 
           preload="auto"
-          controls
-          style={{ width: '100%', marginTop: '10px' }}
+          style={{ display: 'none' }}
         >
           Your browser does not support the audio element.
         </audio>
 
         {/* Fallback Play Button - Only shows if autoplay fails */}
         {showPlayButton && (
-          <div className="mt-4 text-center">
+          <div className="mt-6 text-center">
             <button 
               onClick={playAudioManually}
-              className="bg-dark-green hover:bg-dark-green/90 text-white font-medium py-2 px-4 rounded-lg transition-all duration-200"
+              disabled={isPlaying}
+              className="bg-warm-maroon hover:bg-warm-maroon/90 disabled:bg-gray-400 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 disabled:hover:scale-100 shadow-lg"
             >
-              🔊 Play Audio
+              {isPlaying ? (
+                <>
+                  <span className="animate-pulse">🎵</span> Playing...
+                </>
+              ) : (
+                <>
+                  🔊 Play Scolding Audio
+                </>
+              )}
             </button>
+            <p className="text-sm text-gray-600 mt-2">
+              Click to hear Amma's scolding
+            </p>
           </div>
         )}
       </div>
