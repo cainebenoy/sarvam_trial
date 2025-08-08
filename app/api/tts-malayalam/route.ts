@@ -47,8 +47,60 @@ export async function POST(request: Request) {
 
     if (!geminiTranslationResponse.ok) {
         const errorData = await geminiTranslationResponse.json();
-        console.error('Gemini Translation API error response:', errorData);
-        return NextResponse.json({ error: `Translation failed: ${errorData.error?.message || 'Unknown error'}` }, { status: geminiTranslationResponse.status });
+        console.log('Gemini Translation API error response:', errorData);
+        
+        if (geminiTranslationResponse.status === 429) {
+            // Quota exceeded - use original Manglish text for TTS
+            console.log('⚠️ Gemini API quota exceeded. Using original Manglish text for audio generation.');
+            
+            // Skip translation and proceed with TTS using original text
+            const client = new SarvamAIClient({
+                apiSubscriptionKey: SARVAM_API_SUBSCRIPTION_KEY,
+            });
+
+            const audioResponse = await client.textToSpeech.convert({
+                text: manglishText, // Use original Manglish text
+                target_language_code: "ml-IN",
+                speaker: "arya",
+                pitch: 0.1,
+                pace: 1,
+                loudness: 1,
+                speech_sample_rate: 22050,
+                enable_preprocessing: true,
+                model: "bulbul:v2"
+            });
+
+            // Handle audio response (same logic as below)
+            const responseObj = audioResponse as any;
+            if (responseObj.audios && Array.isArray(responseObj.audios) && responseObj.audios.length > 0) {
+                const audioData = responseObj.audios[0];
+                const audioBuffer = Buffer.from(audioData, 'base64');
+                
+                // Save audio file
+                const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+                const filename = `scolding-${timestamp}.mp3`;
+                const filePath = path.join(process.cwd(), 'public', 'audio', filename);
+                
+                try {
+                    await writeFile(filePath, audioBuffer);
+                    console.log(`Audio file saved: ${filename} (${audioBuffer.length} bytes)`);
+                } catch (fileError) {
+                    console.error('Error saving audio file:', fileError);
+                }
+
+                const audioBlob = new Blob([audioBuffer], { type: 'audio/mpeg' });
+                return new NextResponse(audioBlob, {
+                    headers: {
+                        'Content-Type': 'audio/mpeg',
+                        'Content-Disposition': 'inline; filename="scolding.mp3"',
+                    }
+                });
+            } else {
+                throw new Error('No audio data found in SarvamAI response');
+            }
+        } else {
+            return NextResponse.json({ error: `Translation failed: ${errorData.error?.message || 'Unknown error'}` }, { status: geminiTranslationResponse.status });
+        }
     }
 
     const geminiTranslationData = await geminiTranslationResponse.json();
