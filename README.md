@@ -1,13 +1,11 @@
 # Amma's Digital Scoldings 🎯
 
 ## Basic Details
-### Team Name: V0 AI Team
+### Team Name: Team കഞ്ഞിയും പയറും
 
 ### Team Members
-- Team Lead: [Your Name] - [Your College]
-- Member 2: [Your Teammate's Name] - [Their College]
-- Member 3: [Your Teammate's Name] - [Their College]
-
+- Team Lead: Caine Benoy - Sahrdaya College of Advanced Studies
+- Member 2: Adhityan Vembanat - Sahrdaya College of Advanced Studies
 ### Project Description
 "Amma's Digital Scoldings" is a fun, nostalgic web application that allows users to generate and listen to typical scoldings from a South Indian Malayali mother. It combines AI-generated text with text-to-speech technology to bring a humorous touch to everyday parental admonishments.
 
