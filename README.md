@@ -59,7 +59,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to see the r
 For Software:
 
 # Screenshots (Add at least 3)
-![Initial Load](public/screenshots/initial-load.png?height=600&width=800&query=Amma%27s%20Digital%20Scoldings%20website%20on%20initial%20load%20with%20placeholder%20text)
+<img src="Screenshot 2025-08-08 155434.png">
 *The initial state of the website, showing the title and the "Press the button..." message.*
 
 ![Scolding Generated](public/screenshots/scolding-generated.png?height=600&width=800&query=Amma%27s%20Digital%20Scoldings%20website%20with%20a%20Malayalam%20scolding%20text%20displayed)
