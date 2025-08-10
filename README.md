@@ -1,5 +1,5 @@
 <img src="472981058-517ad8e9-ad22-457d-9538-a9e62d137cd7.png">
-# Amma's Digital Scoldings 🎯
+#### Scold Me Amma 🎯
 
 ## Basic Details
 ### Team Name: Team കഞ്ഞിയും പയറും
@@ -8,13 +8,13 @@
 - Team Lead: Caine Benoy - Sahrdaya College of Advanced Studies
 - Member 2: Adhityan Vembanat - Sahrdaya College of Advanced Studies
 ### Project Description
-"Amma's Digital Scoldings" is a fun, nostalgic web application that allows users to generate and listen to typical scoldings from a South Indian Malayali mother. It combines AI-generated text with text-to-speech technology to bring a humorous touch to everyday parental admonishments.
+"Scold Me Amma" is a fun, nostalgic web application that allows users to generate and listen to typical scoldings from a South Indian Malayali mother. It combines AI-generated text with text-to-speech technology to bring a humorous touch to everyday parental admonishments.
 
 ### The Problem (that doesn't exist)
 In a world where children are glued to their screens, constantly procrastinating, and forgetting their responsibilities, how can a busy Malayali mother deliver her timeless wisdom (and scoldings) without having to physically be there? And what if you're an adult, far from home, missing the unique charm of Amma's daily "vazhakku"?
 
 ### The Solution (that nobody asked for)
-Enter "Amma's Digital Scoldings"! A one-stop digital solution for all your scolding needs. Simply click a button, and let our AI-powered Amma deliver a perfectly crafted, authentic Malayali scolding in her own voice. It's the perfect blend of nostalgia, humor, and a gentle reminder to get things done – all without the actual guilt trip!
+Enter "Scold Me Amma"! A one-stop digital solution for all your scolding needs. Simply click a button, and let our AI-powered Amma deliver a perfectly crafted, authentic Malayali scolding in her own voice. It's the perfect blend of nostalgia, humor, and a gentle reminder to get things done – all without the actual guilt trip!
 
 ## Technical Details
 ### Technologies/Components Used
