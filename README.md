@@ -62,6 +62,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to see the r
 For Software:
 
 # Screenshots (Add at least 3)
+<img src="Screenshot 2025-08-10 113457.png">
 <img src="Screenshot 2025-08-08 155434.png">
 <img src="WhatsApp Image 2025-08-10 at 11.25.38_1ac3edef.jpg">
 
