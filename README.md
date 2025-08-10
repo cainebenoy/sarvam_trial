@@ -70,16 +70,13 @@ For Hardware:
 - Not applicable for this software-only project.
 
 ### Project Demo
-# Video
-## Demo Video
-## Demo Video
 
-<video controls>
-  <source src="v0 App and 1 more page - Personal - Microsoft​ Edge 2025-08-10 12-07-45.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+## Video
+
+[![Demo Video Thumbnail](https://via.placeholder.com/640x360.png?text=Click+to+Watch+Video)](./v0%20App%20and%201%20more%20page%20-%20Personal%20-%20Microsoft%E2%80%8B%20Edge%202025-08-10%2012-07-45.mp4)
 
 *A short video demonstrating the process of generating a scolding and playing its audio.*
+
 
 
 ## Team Contributions
