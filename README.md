@@ -73,7 +73,7 @@ For Hardware:
 
 ## Video
 
-[![Demo Video Thumbnail](https://via.placeholder.com/640x360.png?text=Click+to+Watch+Video)](./v0%20App%20and%201%20more%20page%20-%20Personal%20-%20Microsoft%E2%80%8B%20Edge%202025-08-10%2012-07-45.mp4)
+[![Demo Video Thumbnail](<img src="Screenshot 2025-08-10 113457.png">)](./v0%20App%20and%201%20more%20page%20-%20Personal%20-%20Microsoft%E2%80%8B%20Edge%202025-08-10%2012-07-45.mp4)
 
 *A short video demonstrating the process of generating a scolding and playing its audio.*
 
