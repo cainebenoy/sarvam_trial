@@ -61,8 +61,6 @@ For Software:
 # Screenshots (Add at least 3)
 <img src="Screenshot 2025-08-08 155434.png">
 <img src="WhatsApp Image 2025-08-10 at 11.25.38_1ac3edef.jpg">
-*The initial state of the website, showing the title and the "Press the button..." message.*
-
 
 For Hardware:
 - Not applicable for this software-only project.
