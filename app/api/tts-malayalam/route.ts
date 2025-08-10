@@ -1,7 +1,5 @@
 import { NextResponse } from 'next/server';
 import { SarvamAIClient } from "sarvamai"; // Import the SarvamAIClient
-import { writeFile } from 'fs/promises';
-import path from 'path';
 
 // Environment variables for API keys
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
@@ -76,18 +74,6 @@ export async function POST(request: Request) {
                 const audioData = responseObj.audios[0];
                 const audioBuffer = Buffer.from(audioData, 'base64');
                 
-                // Save audio file
-                const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-                const filename = `scolding-${timestamp}.mp3`;
-                const filePath = path.join(process.cwd(), 'public', 'audio', filename);
-                
-                try {
-                    await writeFile(filePath, audioBuffer);
-                    console.log(`Audio file saved: ${filename} (${audioBuffer.length} bytes)`);
-                } catch (fileError) {
-                    console.error('Error saving audio file:', fileError);
-                }
-
                 const audioBlob = new Blob([new Uint8Array(audioBuffer)], { type: 'audio/mpeg' });
                 return new NextResponse(audioBlob, {
                     headers: {
@@ -162,21 +148,7 @@ export async function POST(request: Request) {
         throw new Error('Invalid response format from SarvamAI');
     }
     
-    // Save audio file to public/audio directory with timestamp
-    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-    const filename = `scolding-${timestamp}.mp3`;
-    const filePath = path.join(process.cwd(), 'public', 'audio', filename);
-    
-    try {
-        await writeFile(filePath, audioBuffer);
-        console.log(`Audio file saved: ${filename} (${audioBuffer.length} bytes)`);
-    } catch (fileError) {
-        console.error('Error saving audio file:', fileError);
-        // Continue anyway - file saving is for debugging
-    }
-
-    // The 'audioResponse' from client.textToSpeech.convert is expected to be the raw audio data (e.g., ArrayBuffer or Buffer)
-    // We convert it to a Blob and return it as a NextResponse.
+    // Convert Buffer to Blob and return as response
     const audioBlob = new Blob([new Uint8Array(audioBuffer)], { type: 'audio/mpeg' });
 
     return new NextResponse(audioBlob, {
