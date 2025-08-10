@@ -73,11 +73,9 @@ For Hardware:
 
 ## Video
 
-[![Demo Video Thumbnail](<img src="Screenshot 2025-08-10 113457.png">)](./v0%20App%20and%201%20more%20page%20-%20Personal%20-%20Microsoft%E2%80%8B%20Edge%202025-08-10%2012-07-45.mp4)
+[![Demo Video](https://img.youtube.com/vi/X9etx3woSEQ/maxresdefault.jpg)](https://youtu.be/X9etx3woSEQ)
 
 *A short video demonstrating the process of generating a scolding and playing its audio.*
-
-
 
 ## Team Contributions
 - **v0 AI**: Developed the core Next.js application structure, integrated Gemini API for text generation and translation, and integrated Sarvam AI for text-to-speech.
