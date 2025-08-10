@@ -60,6 +60,7 @@ For Software:
 
 # Screenshots (Add at least 3)
 <img src="Screenshot 2025-08-08 155434.png">
+<img src="WhatsApp Image 2025-08-10 at 11.25.38_1ac3edef.jpg">
 *The initial state of the website, showing the title and the "Press the button..." message.*
 
 ![Scolding Generated](public/screenshots/scolding-generated.png?height=600&width=800&query=Amma%27s%20Digital%20Scoldings%20website%20with%20a%20Malayalam%20scolding%20text%20displayed)
