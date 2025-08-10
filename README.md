@@ -1,8 +1,10 @@
 <img src="472981058-517ad8e9-ad22-457d-9538-a9e62d137cd7.png">
-### Scold Me Amma 🎯
+
+# Scold Me Amma 🎯
 
 ## Basic Details
 ### Team Name: Team കഞ്ഞിയും പയറും
+
 
 ### Team Members
 - Team Lead: Caine Benoy - Sahrdaya College of Advanced Studies
