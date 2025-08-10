@@ -71,7 +71,9 @@ For Hardware:
 
 ### Project Demo
 # Video
-[Add your demo video link here]
+## Demo Video
+
+[Watch Video](v0 App and 1 more page - Personal - Microsoft​ Edge 2025-08-10 12-07-45.mp4)
 *A short video demonstrating the process of generating a scolding and playing its audio.*
 
 
