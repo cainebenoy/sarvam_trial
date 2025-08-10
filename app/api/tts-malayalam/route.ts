@@ -5,14 +5,14 @@ import path from 'path';
 
 // Environment variables for API keys
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const SARVAM_API_SUBSCRIPTION_KEY = process.env.SARVAM_API_SUBSCRIPTION_KEY;
+const SARVAM_API_KEY = process.env.SARVAM_API_KEY;
 
 // Gemini API URL for translation
 const GEMINI_TRANSLATION_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key=${GEMINI_API_KEY}`;
 
 export async function POST(request: Request) {
-  if (!GEMINI_API_KEY || !SARVAM_API_SUBSCRIPTION_KEY) {
-    return NextResponse.json({ error: 'API keys not configured. Please ensure GEMINI_API_KEY and SARVAM_API_SUBSCRIPTION_KEY are set.' }, { status: 500 });
+  if (!GEMINI_API_KEY || !SARVAM_API_KEY) {
+    return NextResponse.json({ error: 'API keys not configured. Please ensure GEMINI_API_KEY and SARVAM_API_KEY are set.' }, { status: 500 });
   }
 
   try {
@@ -55,7 +55,7 @@ export async function POST(request: Request) {
             
             // Skip translation and proceed with TTS using original text
             const client = new SarvamAIClient({
-                apiSubscriptionKey: SARVAM_API_SUBSCRIPTION_KEY,
+                apiSubscriptionKey: SARVAM_API_KEY,
             });
 
             const audioResponse = await client.textToSpeech.convert({
@@ -88,7 +88,7 @@ export async function POST(request: Request) {
                     console.error('Error saving audio file:', fileError);
                 }
 
-                const audioBlob = new Blob([audioBuffer], { type: 'audio/mpeg' });
+                const audioBlob = new Blob([new Uint8Array(audioBuffer)], { type: 'audio/mpeg' });
                 return new NextResponse(audioBlob, {
                     headers: {
                         'Content-Type': 'audio/mpeg',
@@ -104,7 +104,7 @@ export async function POST(request: Request) {
     }
 
     const geminiTranslationData = await geminiTranslationResponse.json();
-    const malayalamText = geminiTranslationData.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
+    let malayalamText = geminiTranslationData.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
 
     if (!malayalamText) {
         console.error('No translation received from Gemini:', geminiTranslationData);
@@ -115,7 +115,7 @@ export async function POST(request: Request) {
 
     // Step 2: Call Sarvam AI Text-to-Speech API using your provided client code
     const client = new SarvamAIClient({
-        apiSubscriptionKey: SARVAM_API_SUBSCRIPTION_KEY,
+        apiSubscriptionKey: SARVAM_API_KEY,
     });
 
     // Use the exact parameters you provided
@@ -177,7 +177,7 @@ export async function POST(request: Request) {
 
     // The 'audioResponse' from client.textToSpeech.convert is expected to be the raw audio data (e.g., ArrayBuffer or Buffer)
     // We convert it to a Blob and return it as a NextResponse.
-    const audioBlob = new Blob([audioBuffer], { type: 'audio/mpeg' });
+    const audioBlob = new Blob([new Uint8Array(audioBuffer)], { type: 'audio/mpeg' });
 
     return new NextResponse(audioBlob, {
       headers: {
