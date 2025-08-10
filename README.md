@@ -1,3 +1,4 @@
+<img src="472981058-517ad8e9-ad22-457d-9538-a9e62d137cd7.png">
 # Amma's Digital Scoldings 🎯
 
 ## Basic Details
